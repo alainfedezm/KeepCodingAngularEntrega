@@ -1,25 +1,11 @@
-<div class="card">
-  <img
-    [src]="comic.images[0].path + '/portrait_fantastic.' + comic.images[0].extension"
-    alt="Portada"
-    style="width: 100%"
-    *ngIf="
-      comic.images && comic.images.length > 0 && comic.images[0].path;
-      else noImage
-    "
-  />
-  <div class="container">
-    <h4>
-      <b>{{ comic.title }}</b>
-    </h4>
-    <p>{{ comic.description }}</p>
+<div class="show-item" cmCursorChange>
+  <img [src]="comic.images[0].path + '/portrait_fantastic.' + comic.images[0].extension" alt="Avatar" *ngIf="comic.images && comic.images.length>0 && comic.images[0].path; else noimage"/>
+  <div class="container" >
+    <div class="title">{{ comic.title }}</div>
   </div>
 </div>
 
-<ng-template #noImage>
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/0/0a/No-image-available.png"
-    alt="Sin Portada"
-    style="width: 100%"
-  />
+
+<ng-template #noimage >
+  <img src="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png" alt="No image for the comic">
 </ng-template>

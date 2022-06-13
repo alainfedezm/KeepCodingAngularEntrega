@@ -11,12 +11,13 @@ import { map, Observable } from 'rxjs';
 })
 export class ComicApiService implements ApiService<Comic>{
 
+  readonly  url = `${environment.api_server}/v1/public/comics`;
   constructor(private http: HttpClient) { }
 
   list(filters?: { [term: string]: any }): Observable<ApiResponse<Comic>> {
     const params = new HttpParams().appendAll(filters ? filters : {});
-    const url = `${environment.api_server}/v1/public/comics`;
-    return this.http.get(url, { params }).pipe(
+
+    return this.http.get(this.url, { params }).pipe(
       map((resp: any) => ({
         ...resp.data,
         results: resp.data.results.map((comic: any) => new Comic(comic)),

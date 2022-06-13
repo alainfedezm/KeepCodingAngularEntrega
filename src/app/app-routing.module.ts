@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorComponent } from '@core/components/notFound/error.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,15 @@ const routes: Routes = [
         (m) => m.CollectionModule
       ),
   },
+
+  {
+    path: '', redirectTo : 'catalog', pathMatch: 'full',
+  },
+
+  {
+    path: '**', component : ErrorComponent,
+  },
+
 ];
 
 @NgModule({

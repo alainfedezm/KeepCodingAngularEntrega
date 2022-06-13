@@ -18,4 +18,7 @@ export class CatalogComicComponent implements OnInit {
     );
   }
 
+  addToCollection(){
+    this.catalogService.addToCollection(this.comic);
+  }
 }

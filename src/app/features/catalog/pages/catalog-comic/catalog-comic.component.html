@@ -1,2 +1,58 @@
-{{comic.title}}
-<p>catalog-comic works!</p>
+
+<div class="detalle">
+  <div class="data">
+    <div class="basic">
+      <div class="imagen">
+        <img
+        [src]="comic.images[0].path + '/portrait_incredible.' + comic.images[0].extension"
+        alt="Portada"
+        style="width: 100%"
+        *ngIf="
+          comic.images && comic.images.length > 0 && comic.images[0].path;
+          else noImage
+        "
+        />
+      </div>
+
+      <div class="info">
+        <div class="titulo">
+          <h3>{{ comic.title}}</h3>
+        </div>
+        <div class="year">
+          <h6>{{ comic.onsaleDate | date : 'longDate'}}</h6>
+        </div>
+        <div class="desc">
+          {{comic.description}}
+        </div>
+
+        <div>
+          <ul>
+            <li *ngFor="let item of comic.creators">
+              <a>{{item.name}} ({{item.role}})</a>
+            </li>
+          </ul>
+
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <button (click) = "addToCollection()">Add comic to collection</button>
+
+
+  </div>
+</div>
+
+
+<ng-template #noImage>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/0/0a/No-image-available.png"
+    alt="Sin Portada"
+    style="width: 100%"
+  />
+</ng-template>

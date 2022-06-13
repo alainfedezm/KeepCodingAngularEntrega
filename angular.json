@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "comics": {
+      "i18n": {
+        "sourceLocale": "es-ES"
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
