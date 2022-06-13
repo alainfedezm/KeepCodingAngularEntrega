@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuElement } from '@core/interfaces/menu-element.interface';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

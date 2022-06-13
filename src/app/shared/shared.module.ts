@@ -4,6 +4,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreatorsPipe } from './pipes/creators.pipe';
 import { CursorChangeDirective } from './directives/cursor-change.directive';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -12,10 +14,11 @@ import { CursorChangeDirective } from './directives/cursor-change.directive';
     LoaderComponent,
     PaginationComponent,
     CreatorsPipe,
-    CursorChangeDirective
+    CursorChangeDirective,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatPaginatorModule,
   ],
   exports: [
     LoaderComponent,
